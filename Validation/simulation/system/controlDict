@@ -44,21 +44,18 @@ runTimeModifiable yes;
 
 functions
 (
-/*
     Curle
     {
         type                    Curle;
         functionObjectLibs      ("libAcousticAnalogy.so");
-        log                     false;
+        log                     true;
         outputControl           timeStep;
         outputInterval          1;
 
-        patchNames              ( cylinder1 cylinder2 );
+        patches                 ( cylinder1 cylinder2 );
+        cellZone                c1;
         rhoRef                  1.225;
         cRef                    343;
-
-        startTime               0;
-        endTime                 1;
 
         observers
         {
@@ -75,33 +72,6 @@ functions
                 position    	(1.5173325 1.58962725 0);
             }
         }
-    }
-*/
-
-    readFields
-    {
-        functionObjectLibs      ("libfieldFunctionObjects.so");
-
-    	type                    readFields;
-    	fields                  (U);
-    }
-    
-    Lambda2
-    {
-    	type                    Lambda2;
-    	functionObjectLibs      ("libutilityFunctionObjects.so"); 
-    	log                     true;
-    	outputControl           timeStep;
-    	outputInterval          100;
-    }
-
-    magU
-    {
-        type                    calcMag;
-        functionObjectLibs      ("libFVFunctionObjects.so");
-        fieldName               "U";
-        resultName              "magU";
-    	outputInterval          100;
     }
 );
 
