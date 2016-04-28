@@ -1,0 +1,35 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      noiseDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+pRef          0;
+//N           65536;
+N             32768;
+//nw          100;
+//f1          25;
+//fU          10000;
+//graphFormat gr;
+
+pressureData
+{
+    fileName         "postProcessing/Curle/0.09/Curle.dat";
+    nHeaderLine      2;
+    refColumn        0;
+    componentColumns (1);
+    mergeSeparators  true;
+    separator        " ";
+}
+
+// ************************************************************************* //

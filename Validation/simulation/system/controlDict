@@ -1,0 +1,108 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         1.0;
+
+deltaT          1e-6;
+
+writeControl    timeStep;
+
+writeInterval   10000;
+
+purgeWrite      5;
+
+writeFormat     ascii;
+
+writePrecision  9;
+
+writeCompression compressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+functions
+(
+/*
+    Curle
+    {
+        type                    Curle;
+        functionObjectLibs      ("libAcousticAnalogy.so");
+        log                     false;
+        outputControl           timeStep;
+        outputInterval          1;
+
+        patchNames              ( cylinder1 cylinder2 );
+        rhoRef                  1.225;
+        cRef                    343;
+
+        startTime               0;
+        endTime                 1;
+
+        observers
+        {
+            microphone-A
+            {
+                position    	(-0.4760595 1.58962725 0);
+            }
+            microphone-B
+            {
+                position    	(0.5206365 1.8568035 0);
+            }
+            microphone-C
+            {
+                position    	(1.5173325 1.58962725 0);
+            }
+        }
+    }
+*/
+
+    readFields
+    {
+        functionObjectLibs      ("libfieldFunctionObjects.so");
+
+    	type                    readFields;
+    	fields                  (U);
+    }
+    
+    Lambda2
+    {
+    	type                    Lambda2;
+    	functionObjectLibs      ("libutilityFunctionObjects.so"); 
+    	log                     true;
+    	outputControl           timeStep;
+    	outputInterval          100;
+    }
+
+    magU
+    {
+        type                    calcMag;
+        functionObjectLibs      ("libFVFunctionObjects.so");
+        fieldName               "U";
+        resultName              "magU";
+    	outputInterval          100;
+    }
+);
+
+// ************************************************************************* //
