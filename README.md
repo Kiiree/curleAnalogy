@@ -1,4 +1,4 @@
-# acusticAnalogy
+# Curle Analogy
 
 This is a implementation of the modified Curle acoustic analogy presented by Larsson et al. [1] implemented as functionObject for OpenFOAM 3.0.x. The method is implemented for incompressible cases including the surface and volume integrals.
 
