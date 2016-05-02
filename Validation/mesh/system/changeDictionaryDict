@@ -23,14 +23,14 @@ dictionaryReplacement
             type            cyclicAMI;
             neighbourPatch  periodic2;
             transform       translational;
-            separationVector (0 0 -0.0171450);
+            separationVector (0 0 -0.171450);
         }
         periodic2
         {
             type            cyclicAMI;
             neighbourPatch  periodic1;
             transform       translational;
-            separationVector (0 0 0.0171450);
+            separationVector (0 0 0.171450);
         }
     }
 }
