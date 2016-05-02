@@ -6,9 +6,9 @@ The repository includes the source files for compilation. Furthermore, mesh and 
 
 If you have any questions or feedback, feel free to contact me:
 
-Martin Heinrich
-Institute of Mechanics and Fluid Dynamics
-Freiberg University of Mining and Technology
+Martin Heinrich, 
+Institute of Mechanics and Fluid Dynamics, 
+Freiberg University of Mining and Technology, 
 martin.heinrich@imfd.tu-freiberg.de
 
 
